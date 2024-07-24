@@ -56,7 +56,7 @@ jobs:
         python -m flake8 --extend-exclude "cgi.py" .
     - name: run black
       run:
-        black --check --diff .
+        black --check --diff --extend-exclude "cgi.py" .
     - name: run mypy
       run:
         mypy brother_ql_web/ tests/

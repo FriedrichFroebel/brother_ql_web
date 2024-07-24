@@ -20,7 +20,7 @@ def patch_deprecation_warning() -> None:
             return
         original_logger(message, *args, **kwargs)
 
-    logging.getLogger("brother_ql.devicedependent").warn = warn  # type: ignore[assignment,method-assign]  # noqa: E501
+    logging.getLogger("brother_ql.devicedependent").warn = warn  # type: ignore[assignment,method-assign,attr-defined]  # noqa: E501
 
 
 patch_deprecation_warning()

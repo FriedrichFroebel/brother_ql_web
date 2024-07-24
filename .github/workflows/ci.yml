@@ -44,6 +44,7 @@ jobs:
     - name: prepare cgi module (Python 3.13)
       run: |
         wget https://github.com/python/cpython/raw/3.12/Lib/cgi.py
+      if: ${{ matrix.python == '3.13-dev' }}
     - name: run tests
       run:
         python -m unittest discover --verbose --start-directory tests

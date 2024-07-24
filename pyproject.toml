@@ -84,5 +84,5 @@ strict = true
 files = "brother_ql_web,tests"
 
 [tool.codespell]
-skip = "*.min.js*,*.min.css*,venv*"
+skip = "*.min.js*,*.min.css*,venv*,cgi.py"
 ignore-words-list = "assertIn"

@@ -41,9 +41,12 @@ jobs:
         python -m pip install .[dev,mypy]
     # Bottle still depends on the old `cgi` module removed in Python 3.13,
     # thus provide it here.
+    # Avoid the additional error:
+    #     RuntimeError: 'cgi' was slated for removal after Python 3.13 alpha
     - name: prepare cgi module (Python 3.13)
       run: |
         wget https://github.com/python/cpython/raw/3.12/Lib/cgi.py
+        sed --in-place 's/warnings._deprecated(__name__, remove=(3,13))//' cgi.py
       if: ${{ matrix.python == '3.13-dev' }}
     - name: run tests
       run:

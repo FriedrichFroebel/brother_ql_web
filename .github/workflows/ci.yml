@@ -39,6 +39,11 @@ jobs:
     - name: install package
       run: |
         python -m pip install .[dev,mypy]
+    # Bottle still depends on the old `cgi` module removed in Python 3.13,
+    # thus provide it here.
+    - name: prepare cgi module (Python 3.13)
+      run: |
+        wget https://github.com/python/cpython/raw/3.12/Lib/cgi.py
     - name: run tests
       run:
         python -m unittest discover --verbose --start-directory tests

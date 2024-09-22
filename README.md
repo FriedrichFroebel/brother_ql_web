@@ -24,6 +24,8 @@ It's also possible to install it from source for the current interpreter with:
 
 In addition to the Python package requirements itself, `fontconfig` should be installed on your system. It's used to identify and inspect fonts on your machine. This package is pre-installed on many Linux distributions. If you're using a Mac, you might want to use [Homebrew](https://brew.sh) to install fontconfig using [`brew install fontconfig`](https://formulae.brew.sh/formula/fontconfig).
 
+If you are not able to install or use `fontconfig` for some reasons, `fontra` is available as a fallback. You can install if using the `fontra` extra.
+
 ### Configuration file
 
 Grab a copy of the [example configuration file](https://github.com/FriedrichFroebel/brother_ql_web/blob/master/config.example.json) and adjust it to your needs. You can store this file on your device wherever you want - just make sure to remember the full path as you will have to pass it to the CLI.

@@ -53,7 +53,7 @@ Changelog = "https://github.com/FriedrichFroebel/brother_ql_web/blob/master/CHAN
 
 [project.optional-dependencies]
 fontra = [
-    "fontra>=0.5.1",
+    "fontra>=0.5.2",
 ]
 dev = [
     "black",

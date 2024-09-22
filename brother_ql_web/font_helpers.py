@@ -14,6 +14,13 @@ def get_fonts(folder: str | None = None) -> dict[str, dict[str, str]]:
     Scan a folder (or the system) for .ttf / .otf fonts and
     return a dictionary of the structure  family -> style -> file path
     """
+    if _has_fontra():
+        return _get_fonts_using_fontra(folder)
+    return _get_fonts_using_fontconfig(folder)
+
+
+
+def _get_fonts_using_fontconfig(folder: str | None = None) -> dict[str, dict[str, str]]:
     fonts: dict[str, dict[str, str]] = defaultdict(dict)
     if folder:
         cmd = ["fc-scan", "--format", "%{file}:%{family}:style=%{style}\n", folder]
@@ -42,5 +49,32 @@ def get_fonts(folder: str | None = None) -> dict[str, dict[str, str]]:
             continue
         for i in range(len(families)):
             fonts[families[i]][styles[i]] = path
+            print(families[i], '|', styles[i], path)
             # logger.debug("Added this font: %s", (families[i], styles[i], path))
+    return dict(fonts)
+
+
+def _has_fontra() -> bool:
+    from importlib.util import find_spec
+
+    return find_spec("fontra") is not None
+
+
+def _get_fonts_using_fontra(folder: str | None = None) -> dict[str, dict[str, str]]:
+    from pathlib import Path
+    import fontra
+
+    if folder:
+        fontra.FONTDIRS_CUSTOM.append(Path(folder))
+        fontra.update_custom_fontfiles_index()
+        fontra.update_fontrefs_index()
+    else:
+        fontra.init_fontdb()
+    fonts: dict[str, dict[str, str]] = defaultdict(dict)
+    families = fontra.all_fonts(classical=True)
+    for family in families:
+        styles = fontra.get_font_styles(family, classical=True)
+        for style in styles:
+            path: str = fontra.get_font(family, style, classical=True).path.absolute().as_posix()
+            fonts[family][style] = path
     return dict(fonts)

@@ -52,6 +52,9 @@ Issues = "https://github.com/FriedrichFroebel/brother_ql_web//issues"
 Changelog = "https://github.com/FriedrichFroebel/brother_ql_web/blob/master/CHANGELOG.md"
 
 [project.optional-dependencies]
+fontra = [
+    "fontra>=0.5.1",
+]
 dev = [
     "black",
     "codespell",

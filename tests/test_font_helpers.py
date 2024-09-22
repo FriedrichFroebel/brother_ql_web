@@ -65,7 +65,7 @@ class GetFontsTestCase(TestCase):
         not_in_name: str = "",
     ) -> None:
         for font_name, font_styles in expected.items():
-            self.assertIn(font_name, actual)
+            self.assertIn(font_name, actual.keys())
             actual_styles = actual[font_name]
             with self.subTest(font_name=font_name):
                 for font_style, path in font_styles.items():

@@ -65,7 +65,7 @@ class TestCase(_TestCase):
 
         self.thread = Thread(target=run)
         self.thread.start()
-        sleep(0.5)
+        sleep(2.0)
 
 
 class GetConfigTestCase(TestCase):

@@ -1,0 +1,7 @@
+services:
+  brother_ql_web:
+    build: .
+    ports:
+      - "8013:8013"
+    volumes:
+      - .:/app

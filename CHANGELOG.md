@@ -1,5 +1,7 @@
 # Development version
 
+* Drop support for Python <= 3.9.
+
 # Version 0.5.0 - 2024-12-22
 
 * Migrate away from `brother_ql.devicedependent`.

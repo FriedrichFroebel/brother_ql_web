@@ -14,7 +14,7 @@ class Configuration:
 
     @classmethod
     def from_json(cls, json_file: str) -> Configuration:
-        with open(json_file, mode="r") as fd:
+        with open(json_file) as fd:
             parsed: dict[str, Any] = json.load(fd)
         kwargs: dict[str, Any] = {}
         global_variables = globals()

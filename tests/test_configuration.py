@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 from tempfile import NamedTemporaryFile
-from typing import cast, Dict, Union
+from typing import cast, Union
 
 from brother_ql_web.configuration import (
     Configuration,
@@ -62,7 +62,7 @@ class ConfigurationTestCase(TestCase):
     def example_json(self) -> dict[str, dict[str, str | int | dict[str, str]]]:
         with open(self.example_configuration_path) as fd:
             return cast(
-                Dict[str, Dict[str, Union[str, int, Dict[str, str]]]], json.load(fd)
+                dict[str, dict[str, Union[str, int, dict[str, str]]]], json.load(fd)
             )
 
     def test_from_json(self) -> None:

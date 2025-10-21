@@ -36,7 +36,7 @@ keywords = [
     "label",
     "printer",
 ]
-requires-python = ">=3.9, <4"
+requires-python = ">=3.10, <4"
 dependencies = [
     "brother_ql",
     "bottle",

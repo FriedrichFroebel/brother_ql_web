@@ -7,7 +7,7 @@ You need a considerably recent Python 3 version for this software to work.
 ![Screenshot](./brother_ql_web/static/images/screenshots/Label-Designer_Desktop.png)
 
 The web interface is [responsive](https://en.wikipedia.org/wiki/Responsive_web_design).
-There is also a screenshot showing [how it looks on a smartphone](./static/images/screenshots/Label-Designer_Phone.png)
+There is also a screenshot showing [how it looks on a smartphone](./brother_ql_web/static/images/screenshots/Label-Designer_Phone.png)
 
 ### Installation
 

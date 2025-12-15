@@ -29,18 +29,18 @@ def get_config(key: str) -> object:
     return bottle.request.app.config[key]
 
 
-@bottle.route("/")  # type: ignore[misc]
+@bottle.route("/")  # type: ignore[untyped-decorator]
 def index() -> None:
     bottle.redirect("/labeldesigner")
 
 
-@bottle.route("/static/<filename:path>")  # type: ignore[misc]
+@bottle.route("/static/<filename:path>")  # type: ignore[untyped-decorator]
 def serve_static(filename: str) -> bottle.HTTPResponse:
     return bottle.static_file(filename, root=str(CURRENT_DIRECTORY / "static"))
 
 
-@bottle.route("/labeldesigner")  # type: ignore[misc]
-@bottle.jinja2_view("labeldesigner.jinja2")  # type: ignore[misc]
+@bottle.route("/labeldesigner")  # type: ignore[untyped-decorator]
+@bottle.jinja2_view("labeldesigner.jinja2")  # type: ignore[untyped-decorator]
 def labeldesigner() -> dict[str, Any]:
     fonts = cast(dict[str, dict[str, str]], get_config("brother_ql_web.fonts"))
     font_family_names = sorted(list(fonts.keys()))
@@ -118,8 +118,8 @@ def get_label_parameters(
     return LabelParameters(**context)
 
 
-@bottle.get("/api/preview/text")  # type: ignore[misc]
-@bottle.post("/api/preview/text")  # type: ignore[misc]
+@bottle.get("/api/preview/text")  # type: ignore[untyped-decorator]
+@bottle.post("/api/preview/text")  # type: ignore[untyped-decorator]
 def get_preview_image() -> bytes:
     parameters = get_label_parameters(bottle.request)
     image = create_label_image(parameters=parameters)
@@ -134,8 +134,8 @@ def get_preview_image() -> bytes:
         return image_to_png_bytes(image)
 
 
-@bottle.post("/api/print/text")  # type: ignore[misc]
-@bottle.get("/api/print/text")  # type: ignore[misc]
+@bottle.post("/api/print/text")  # type: ignore[untyped-decorator]
+@bottle.get("/api/print/text")  # type: ignore[untyped-decorator]
 def print_text() -> dict[str, bool | str]:
     """
     API to print some text
@@ -163,7 +163,7 @@ def print_text() -> dict[str, bool | str]:
     return _print(parameters=parameters, qlr=qlr)
 
 
-@bottle.post("/api/print/image")  # type: ignore[misc]
+@bottle.post("/api/print/image")  # type: ignore[untyped-decorator]
 def print_image() -> dict[str, bool | str]:
     """
     API to print an image

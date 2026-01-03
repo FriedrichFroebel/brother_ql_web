@@ -220,7 +220,7 @@ class CreateLabelImageTestCase(TestCase):
                 self.assertEqual(target_image.mode, image.mode)
                 self.assertEqual(target_image.size, image.size)
                 difference = ImageChops.difference(target_image, image)
-                for index, pixel in enumerate(difference.getdata()):
+                for index, pixel in enumerate(difference.get_flattened_data()):
                     self.assertEqual((0, 0, 0), pixel, index)
 
     def test_create_label_image__multiline_text(self) -> None:
@@ -239,7 +239,7 @@ class CreateLabelImageTestCase(TestCase):
                 self.assertEqual(target_image.mode, image.mode)
                 self.assertEqual(target_image.size, image.size)
                 difference = ImageChops.difference(target_image, image)
-                for index, pixel in enumerate(difference.getdata()):
+                for index, pixel in enumerate(difference.get_flattened_data()):
                     self.assertEqual((0, 0, 0), pixel, index)
 
 

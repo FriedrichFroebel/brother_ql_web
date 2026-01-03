@@ -88,7 +88,7 @@ class LabelParameters:
         return path
 
     @property
-    def width_height(self) -> tuple[int, int]:
+    def width_height(self) -> tuple[float, float]:
         width, height = self._label.dots_printable
 
         if height > width:
@@ -98,17 +98,17 @@ class LabelParameters:
         return width, height
 
     @property
-    def width(self) -> int:
+    def width(self) -> float:
         return self.width_height[0]
 
     @property
-    def height(self) -> int:
+    def height(self) -> float:
         return self.width_height[1]
 
 
 def _determine_image_dimensions(
     text: str, image_font: ImageFont.FreeTypeFont, parameters: LabelParameters
-) -> tuple[int, int, int, int]:
+) -> tuple[float, float, float, float]:
     image = Image.new("L", (20, 20), "white")
     draw = ImageDraw.Draw(image)
 
@@ -135,12 +135,12 @@ def _determine_image_dimensions(
 
 
 def _determine_text_offsets(
-    height: int,
-    width: int,
-    text_height: int,
-    text_width: int,
+    height: float,
+    width: float,
+    text_height: float,
+    text_width: float,
     parameters: LabelParameters,
-) -> tuple[int, int]:
+) -> tuple[float, float]:
     if parameters.orientation == "standard":
         if parameters.kind in (FormFactor.DIE_CUT, FormFactor.ROUND_DIE_CUT):
             vertical_offset = (height - text_height) // 2
@@ -188,7 +188,7 @@ def create_label_image(parameters: LabelParameters) -> Image.Image:
         parameters=parameters,
     )
 
-    image = Image.new("RGB", (width, height), "white")
+    image = Image.new("RGB", (int(width), int(height)), "white")
     draw = ImageDraw.Draw(image)
     align = cast(Literal["left", "center", "right"], parameters.align)
     draw.multiline_text(

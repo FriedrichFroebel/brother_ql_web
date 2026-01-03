@@ -67,7 +67,6 @@ dev = [
 ]
 mypy = [
     "mypy",
-    "types-Pillow",
     "types-requests",
 ]
 

@@ -37,7 +37,7 @@ brother_ql.conversion.Image.ANTIALIAS = PIL.Image.LANCZOS  # type: ignore[attr-d
 # Renamed/deprecated in 12.1.0:
 # https://pillow.readthedocs.io/en/stable/releasenotes/12.1.0.html#image-get-flattened-data
 try:
-    PIL.Image.Image.getdata = PIL.Image.Image.get_flattened_data  # type: ignore[assignment,method-assign]
+    PIL.Image.Image.getdata = PIL.Image.Image.get_flattened_data  # type: ignore[assignment,method-assign]  # noqa: E501
 except AttributeError:
     pass
 

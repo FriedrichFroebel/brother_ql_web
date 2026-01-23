@@ -4,7 +4,6 @@ import logging
 import subprocess
 from collections import defaultdict
 
-
 logger = logging.getLogger(__name__)
 del logging
 

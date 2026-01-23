@@ -29,7 +29,6 @@ patch_deprecation_warning()
 import brother_ql.conversion  # noqa: E402
 import PIL  # noqa: E402
 
-
 # Renamed in version 2.7.0:
 # https://pillow.readthedocs.io/en/stable/releasenotes/2.7.0.html#antialias-renamed-to-lanczos
 brother_ql.conversion.Image.ANTIALIAS = PIL.Image.LANCZOS  # type: ignore[attr-defined]

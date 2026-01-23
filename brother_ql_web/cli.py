@@ -12,7 +12,6 @@ from brother_ql.models import ALL_MODELS
 from brother_ql_web.configuration import Configuration, Font
 from brother_ql_web.utils import collect_fonts
 
-
 logger = logging.getLogger(__name__)
 
 

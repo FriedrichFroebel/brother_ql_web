@@ -11,7 +11,6 @@ from brother_ql_web.configuration import Configuration
 from brother_ql_web import utils
 from PIL import Image, ImageDraw, ImageFont
 
-
 logger = logging.getLogger(__name__)
 del logging
 

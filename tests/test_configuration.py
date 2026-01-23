@@ -15,7 +15,6 @@ from brother_ql_web.configuration import (
 
 from tests import TestCase
 
-
 CUSTOM_CONFIGURATION = """
 {
   "server": {

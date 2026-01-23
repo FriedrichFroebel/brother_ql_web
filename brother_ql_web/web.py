@@ -18,7 +18,6 @@ from brother_ql_web.labels import (
 )
 from brother_ql_web.utils import BACKEND_TYPE
 
-
 logger = logging.getLogger(__name__)
 del logging
 

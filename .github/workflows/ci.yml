@@ -32,9 +32,6 @@ jobs:
     - name: update PIP
       run:
         python -m pip install --upgrade pip
-    - name: install wheel
-      run:
-        python -m pip install --upgrade wheel
     - name: install package
       run:
         python -m pip install .[dev,mypy]

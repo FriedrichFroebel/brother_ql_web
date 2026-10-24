@@ -34,12 +34,12 @@ keywords = [
     "label",
     "printer",
 ]
-requires-python = ">=3.10, <4"
+requires-python = ">=3.11, <4"
 dependencies = [
-    "brother_ql",
+    "brother-ql",
     "bottle",
     "jinja2",
-    "Pillow>=8",
+    "pillow>=8",
 ]
 
 [project.scripts]

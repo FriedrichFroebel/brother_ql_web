@@ -6,10 +6,13 @@ import functools
 import pathlib
 import threading
 from _typeshed import Incomplete
-from collections import MutableMapping as DictMixin  # type: ignore[attr-defined,unused-ignore]
-from collections.abc import Generator
+from collections.abc import (
+    Callable,
+    MutableMapping as DictMixin,  # type: ignore[attr-defined,unused-ignore]
+    Generator,
+)
 from json import loads as json_lds
-from typing import Any, Callable
+from typing import Any
 
 py: Incomplete
 py3k: Incomplete

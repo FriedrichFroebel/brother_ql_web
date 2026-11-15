@@ -73,6 +73,9 @@
                                             <input type="radio" name="fontAlign" onchange="preview()" value="right" aria-label="Right Align"><span class="bi-text-right" aria-hidden="true"></span>
                                         </label>
                                     </div>
+                                    <label class="btn">
+                                        <input type="checkbox" name="negate" id="negate" onchange="preview()" aria-label="Negate"> Negate
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -213,6 +216,7 @@
         const marginRight = getValue('marginRight');
         const labelCount = getValue('labelCount');
         const highQuality = isChecked('highQuality');
+        const negate = isChecked('negate');
 
         const data = new FormData();
         data.append('text', text);
@@ -227,6 +231,7 @@
         data.append('margin_right', marginRight);
         data.append('label_count', labelCount);
         data.append('high_quality', highQuality);
+        data.append('negate', negate);
         return data;
     }
 

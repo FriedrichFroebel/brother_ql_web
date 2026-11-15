@@ -30,8 +30,8 @@ class LabelParameters:
     threshold: int = 70
     align: str = "center"
     orientation: str = "standard"
-    margin_top: int = 24
-    margin_bottom: int = 45
+    margin_top: int = 0
+    margin_bottom: int = 25
     margin_left: int = 35
     margin_right: int = 35
     label_count: int = 1

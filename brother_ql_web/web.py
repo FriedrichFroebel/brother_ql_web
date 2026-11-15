@@ -111,7 +111,8 @@ def get_label_parameters(
         "margin_left": int(d.get("margin_left", 35)),
         "margin_right": int(d.get("margin_right", 35)),
         "label_count": int(d.get("label_count", 1)),
-        "high_quality": d.get("high_quality", "").lower() == "true",  # TODO: Enable by default.
+        # TODO: Enable high_quality by default.
+        "high_quality": d.get("high_quality", "").lower() == "true",
         "negate": d.get("negate", "").lower() == "true",
         "configuration": request.app.config["brother_ql_web.configuration"],
     }

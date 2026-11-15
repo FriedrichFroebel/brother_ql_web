@@ -38,6 +38,7 @@ class LabelParameters:
     # TODO: Not yet taken into account. The number of dots in each direction has to be
     #       doubled. The generator/calculation methods have to be updated accordingly.
     high_quality: bool = False
+    negate: bool = False
 
     @property
     def _label(self) -> Label:
@@ -71,7 +72,17 @@ class LabelParameters:
 
     @property
     def fill_color(self) -> tuple[int, int, int]:
-        return (255, 0, 0) if "red" in self.label_size else (0, 0, 0)
+        if "red" in self.label_size:
+            return (255, 0, 0)
+        if self.negate:
+            return (255, 255, 255)
+        return (0, 0, 0)
+
+    @property
+    def background_color(self) -> tuple[int, int, int]:
+        if self.negate:
+            return (0, 0, 0)
+        return (255, 255, 255)
 
     @property
     def font_path(self) -> str:
@@ -187,7 +198,7 @@ def create_label_image(parameters: LabelParameters) -> Image.Image:
         parameters=parameters,
     )
 
-    image = Image.new("RGB", (int(width), int(height)), "white")
+    image = Image.new("RGB", (int(width), int(height)), parameters.background_color)
     draw = ImageDraw.Draw(image)
     align = cast(Literal["left", "center", "right"], parameters.align)
     draw.multiline_text(

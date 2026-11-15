@@ -93,6 +93,7 @@ def get_label_parameters(
                 "where Roboto is the family name and Medium the corresponding font "
                 "style."
             )
+
     context = {
         "text": d.get("text", ""),
         "image": _save_to_bytes(request.files.get("image")),
@@ -110,7 +111,8 @@ def get_label_parameters(
         "margin_left": int(d.get("margin_left", 35)),
         "margin_right": int(d.get("margin_right", 35)),
         "label_count": int(d.get("label_count", 1)),
-        "high_quality": bool(d.get("high_quality", False)),  # TODO: Enable by default.
+        "high_quality": d.get("high_quality", "").lower() == "true",  # TODO: Enable by default.
+        "negate": d.get("negate", "").lower() == "true",
         "configuration": request.app.config["brother_ql_web.configuration"],
     }
 
